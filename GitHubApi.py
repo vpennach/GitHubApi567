@@ -15,7 +15,7 @@ def get_repos_and_commits(username):
         #Error handling (checking for correct response)
         
         if repos_response.status_code == 404:
-            return f"Error: Username '{username} not found"
+            return f"Error: Username '{username}' not found"
         if repos_response.status_code != 200:
             return f"Error: Unable to fetch data"
         
@@ -41,7 +41,7 @@ def get_repos_and_commits(username):
     except requests.exceptions.RequestException as e:
         return f"Error: A network error occured"
     
-username = "  Vpennach"
+username = "Vpennach"
 repos_commits = get_repos_and_commits(username)
 
 print(repos_commits)
