@@ -13,10 +13,10 @@ jobs:
     steps:
       - checkout  # Checkout the code
 
-      # Install pytest
+      # Install requests and pytest
       - run:
-          name: Install pytest
-          command: pip install pytest
+          name: Install dependencies
+          command: pip install requests pytest
           
       # Create the test-results directory
       - run:
@@ -36,3 +36,4 @@ workflows:
   testing_triangles:
     jobs:
       - build-and-test
+
