@@ -8,20 +8,27 @@ jobs:
     docker:
       - image: cimg/python:3.10.2
 
+    working_directory: ~/project  # Set the working directory to the root of your project
+
     steps:
-      - checkout
+      - checkout  # Checkout the code
+
+      # Install pytest
       - run:
           name: Install pytest
           command: pip install pytest
           
+      # Create the test-results directory
       - run:
           name: Create test-results directory
           command: mkdir -p test-results
 
+      # Run the tests
       - run:
           name: Run tests and store results
           command: pytest --junitxml=test-results/junit.xml TestGitHubApi.py
 
+      # Store the test results
       - store_test_results:
           path: test-results
 
